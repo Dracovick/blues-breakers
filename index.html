@@ -10,7 +10,6 @@
   <link rel="canonical" href="https://bluesbreakers.ca/">
   <meta name="google-site-verification" content="1_f2Cnrk3naHULEPMak9PTRYKnBy_GNpVN-iuSw7Ymw">
 
-  <!-- Données structurées JSON-LD — Google Rich Results -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -24,10 +23,7 @@
         "url": "https://bluesbreakers.ca/",
         "image": "https://bluesbreakers.ca/photos/scene2.jpg",
         "logo": "https://bluesbreakers.ca/photos/LogoBluesBreakers.jpg",
-        "foundingLocation": {
-          "@type": "Place",
-          "name": "Laval, Québec, Canada"
-        },
+        "foundingLocation": { "@type": "Place", "name": "Laval, Québec, Canada" },
         "member": [
           { "@type": "OrganizationRole", "member": { "@type": "Person", "name": "André Arsenault" }, "roleName": "Guitariste et chanteur" },
           { "@type": "OrganizationRole", "member": { "@type": "Person", "name": "Alain Poirier" }, "roleName": "Batteur" },
@@ -71,32 +67,26 @@
           "url": "https://lapetiteeglise.tuxedobillet.com/main/bluesbreakers",
           "validFrom": "2026-06-01"
         },
-        "organizer": {
-          "@type": "Organization",
-          "name": "La Petite Église",
-          "url": "https://lapetiteeglise.com"
-        }
+        "organizer": { "@type": "Organization", "name": "La Petite Église", "url": "https://lapetiteeglise.com" }
       }
     ]
   }
   </script>
 
-  <!-- Open Graph — aperçu Facebook/Instagram/WhatsApp -->
   <meta property="og:type"        content="website">
-  <meta property="og:url"         content="https://blues-breakers.vercel.app/">
+  <meta property="og:url"         content="https://bluesbreakers.ca/">
   <meta property="og:title"       content="Blues Breakers — Spectacle bénéfice · 27 juin 2026">
   <meta property="og:description" content="Une soirée de blues-rock intense à La Petite Église de Saint-Eustache. Billets : 25 $. Au profit de la Fondation québécoise du cancer et de la Société de la SLA.">
-  <meta property="og:image"       content="https://blues-breakers.vercel.app/photos/scene2.jpg">
+  <meta property="og:image"       content="https://bluesbreakers.ca/photos/scene2.jpg">
   <meta property="og:image:width"  content="984">
   <meta property="og:image:height" content="737">
   <meta property="og:locale"      content="fr_CA">
   <meta property="og:site_name"   content="Blues Breakers Band">
 
-  <!-- Twitter/X Card -->
   <meta name="twitter:card"        content="summary_large_image">
   <meta name="twitter:title"       content="Blues Breakers — Spectacle bénéfice · 27 juin 2026">
   <meta name="twitter:description" content="Blues-rock de Laval. La Petite Église, Saint-Eustache. 25 $. Billets en ligne.">
-  <meta name="twitter:image"       content="https://blues-breakers.vercel.app/photos/scene2.jpg">
+  <meta name="twitter:image"       content="https://bluesbreakers.ca/photos/scene2.jpg">
 
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -133,23 +123,30 @@
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a { color: rgba(255,255,255,.8); font-size: .9rem; font-weight: 500; transition: color .2s; }
     .nav-links a:hover { color: var(--amber); }
+    .nav-right { display: flex; align-items: center; gap: 1.25rem; }
+    .lang-switch { display: flex; align-items: center; gap: .2rem; }
+    .lang-btn {
+      background: none; border: none; cursor: pointer;
+      font-size: .8rem; font-weight: 700; letter-spacing: .06em;
+      color: rgba(255,255,255,.4); padding: .25rem .45rem; border-radius: .3rem;
+      transition: color .2s; font-family: 'Raleway', sans-serif;
+    }
+    .lang-btn.active { color: var(--amber); }
+    .lang-btn:hover:not(.active) { color: rgba(255,255,255,.75); }
+    .lang-sep { color: rgba(255,255,255,.2); font-size: .7rem; user-select: none; }
     .nav-burger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
     .nav-burger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
 
     /* ── Hero ── */
     .hero {
-      min-height: 100vh;
-      position: relative; overflow: hidden;
+      min-height: 100vh; position: relative; overflow: hidden;
       background: linear-gradient(180deg, #06060f 0%, #0d0d1e 60%, #100818 100%);
       display: flex; align-items: center; justify-content: center;
       text-align: center; padding: 6rem 1.5rem 3rem;
     }
 
     /* ── Lumières de scène ── */
-    .stage-lights {
-      position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0;
-    }
-    /* Source lumineuse en haut au centre */
+    .stage-lights { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
     .stage-lights::before {
       content: '';
       position: absolute; top: -60px; left: 50%; transform: translateX(-50%);
@@ -157,7 +154,6 @@
       background: radial-gradient(circle, rgba(180,230,255,.55) 0%, rgba(100,180,255,.2) 40%, transparent 70%);
       filter: blur(12px);
     }
-    /* Lueur orangée au sol */
     .stage-lights::after {
       content: '';
       position: absolute; bottom: -20px; left: 0; right: 0; height: 220px;
@@ -167,18 +163,11 @@
         radial-gradient(ellipse 20% 30% at 50% 100%, rgba(245,140,30,.12) 0%, transparent 70%);
     }
     .beam {
-      position: absolute;
-      top: 0; left: 50%;
-      width: var(--w, 120px);
-      height: 110vh;
+      position: absolute; top: 0; left: 50%;
+      width: var(--w, 120px); height: 110vh;
       transform-origin: top center;
       transform: translateX(-50%) rotate(var(--rot));
-      background: linear-gradient(
-        to bottom,
-        var(--col, rgba(100,200,255,.22)) 0%,
-        var(--col, rgba(100,200,255,.10)) 25%,
-        transparent 72%
-      );
+      background: linear-gradient(to bottom, var(--col, rgba(100,200,255,.22)) 0%, var(--col, rgba(100,200,255,.10)) 25%, transparent 72%);
       filter: blur(var(--blur, 3px));
       animation: beam-pulse var(--dur, 5s) ease-in-out infinite var(--delay, 0s);
       opacity: 0;
@@ -191,15 +180,12 @@
       100% { opacity: 0; }
     }
     .hero-inner { position: relative; z-index: 1; max-width: 740px; width: 100%; }
-    .hero-inner { max-width: 740px; }
     .hero-tag {
       display: inline-block;
       background: var(--amber); color: var(--navy);
       font-size: .75rem; font-weight: 700; letter-spacing: .12em;
       text-transform: uppercase; padding: .35rem .9rem; border-radius: 2rem;
-      margin-bottom: 1.5rem;
-      transition: background .2s, transform .15s;
-      cursor: pointer;
+      margin-bottom: 1.5rem; transition: background .2s, transform .15s; cursor: pointer;
     }
     a.hero-tag:hover { background: #fbbf24; transform: translateY(-2px); }
     .hero h1 {
@@ -228,10 +214,9 @@
     /* Countdown */
     .countdown { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
     .countdown-item {
-      text-align: center;
-      background: rgba(255,255,255,.1); backdrop-filter: blur(4px);
-      border: 1px solid rgba(255,255,255,.15);
-      border-radius: .75rem; padding: .9rem 1.25rem; min-width: 72px;
+      text-align: center; background: rgba(255,255,255,.1); backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,.15); border-radius: .75rem;
+      padding: .9rem 1.25rem; min-width: 72px;
     }
     .countdown-num { display: block; font-family: 'Raleway', sans-serif; font-size: 2.2rem; font-weight: 800; color: var(--white); line-height: 1; }
     .countdown-label { font-size: .7rem; color: rgba(255,255,255,.6); text-transform: uppercase; letter-spacing: .08em; margin-top: .3rem; }
@@ -272,11 +257,7 @@
     /* ── À propos ── */
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
     .about-text .section-sub { max-width: 100%; font-size: 1rem; line-height: 1.8; }
-    .about-image {
-      border-radius: 1rem; overflow: hidden;
-      box-shadow: 0 8px 48px rgba(26,26,46,.15);
-      aspect-ratio: 4/3;
-    }
+    .about-image { border-radius: 1rem; overflow: hidden; box-shadow: 0 8px 48px rgba(26,26,46,.15); aspect-ratio: 4/3; }
     .about-image img { width: 100%; height: 100%; object-fit: cover; }
 
     /* ── Membres ── */
@@ -287,20 +268,12 @@
     .members-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
     .member-card {
       background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
-      border-radius: 1rem; overflow: hidden;
-      transition: transform .2s, background .2s;
+      border-radius: 1rem; overflow: hidden; transition: transform .2s, background .2s;
     }
     .member-card:hover { transform: translateY(-4px); background: rgba(255,255,255,.1); }
     .member-photo { width: 100%; aspect-ratio: 3/4; overflow: hidden; background: rgba(255,255,255,.05); }
     .member-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; filter: grayscale(20%); transition: filter .3s; }
     .member-card:hover .member-photo img { filter: grayscale(0%); }
-    .member-photo-placeholder {
-      width: 100%; aspect-ratio: 3/4;
-      background: linear-gradient(135deg, rgba(37,99,235,.3), rgba(245,158,11,.2));
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Raleway', sans-serif; font-size: 3rem; font-weight: 800;
-      color: rgba(255,255,255,.4);
-    }
     .member-info { padding: 1.25rem 1.5rem 1.5rem; }
     .member-name { font-family: 'Raleway', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: .3rem; }
     .member-role { font-size: .9rem; color: var(--amber); font-weight: 500; }
@@ -318,26 +291,13 @@
     .videos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; max-width: 1060px; margin-left: auto; margin-right: auto; }
     .video-item { display: flex; flex-direction: column; gap: .75rem; }
     .video-title { font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 1rem; color: var(--navy); text-align: center; }
-    @media (max-width: 640px) { .videos-grid { grid-template-columns: 1fr; } }
-
-    .yt-frame {
-      border-radius: .75rem; overflow: hidden;
-      box-shadow: 0 8px 32px rgba(37,99,235,.15);
-      aspect-ratio: 16/9; background: #000;
-    }
+    .yt-frame { border-radius: .75rem; overflow: hidden; box-shadow: 0 8px 32px rgba(37,99,235,.15); aspect-ratio: 16/9; background: #000; }
     .yt-frame iframe { width: 100%; height: 100%; border: none; display: block; }
-    .yt-link {
-      display: inline-block; margin-top: .6rem;
-      font-size: .82rem; color: var(--gray);
-      transition: color .2s;
-    }
+    .yt-link { display: inline-block; margin-top: .6rem; font-size: .82rem; color: var(--gray); transition: color .2s; }
     .yt-link:hover { color: var(--blue); }
 
     /* ── Billets ── */
-    .tickets-section {
-      background: linear-gradient(135deg, var(--blue) 0%, #1d4ed8 100%);
-      text-align: center;
-    }
+    .tickets-section { background: linear-gradient(135deg, var(--blue) 0%, #1d4ed8 100%); text-align: center; }
     .tickets-section .section-label { color: rgba(255,255,255,.7); }
     .tickets-section .section-title { color: var(--white); }
     .tickets-section .divider { background: var(--amber); margin: 1.2rem auto 2rem; }
@@ -349,8 +309,6 @@
 
     /* ── Footer ── */
     footer { background: var(--navy); padding: 2.5rem 1.5rem; text-align: center; }
-    .footer-logo { font-family: 'Raleway', sans-serif; font-size: 1.3rem; font-weight: 800; color: var(--white); margin-bottom: .5rem; }
-    .footer-logo span { color: var(--amber); }
     .footer-links { display: flex; gap: 1.5rem; justify-content: center; margin: 1rem 0; }
     .footer-links a { color: rgba(255,255,255,.55); font-size: .85rem; transition: color .2s; }
     .footer-links a:hover { color: var(--amber); }
@@ -360,7 +318,11 @@
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .nav-burger { display: flex; }
-      .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--navy); padding: 1.5rem 2rem; gap: 1rem; }
+      .nav-links.open {
+        display: flex; flex-direction: column;
+        position: absolute; top: 64px; left: 0; right: 0;
+        background: var(--navy); padding: 1.5rem 2rem; gap: 1rem;
+      }
       .show-card { grid-template-columns: 1fr; }
       .show-image { min-height: 240px; }
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -368,6 +330,7 @@
       .gallery-item:first-child,
       .gallery-item:last-child { grid-column: span 1 !important; aspect-ratio: 4/3; }
       .gallery-grid { grid-template-columns: 1fr; }
+      .videos-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 480px) {
       section { padding: 3.5rem 1.25rem; }
@@ -381,23 +344,29 @@
 <nav id="navbar">
   <div class="nav-logo"><a href="#home"><img src="photos/LogoBluesBreakers.jpg" alt="Blues Breakers Band"></a></div>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#show">Spectacle</a></li>
-    <li><a href="#about">Le groupe</a></li>
-    <li><a href="#membres">Membres</a></li>
-    <li><a href="#galerie">Photos</a></li>
-    <li><a href="#musique">Musique</a></li>
-    <li><a href="#billets">Billets</a></li>
-    <li><a href="mailto:andre.arsenault@outlook.com">Contact</a></li>
+    <li><a href="#show" data-i18n="nav.show">Spectacle</a></li>
+    <li><a href="#about" data-i18n="nav.group">Le groupe</a></li>
+    <li><a href="#membres" data-i18n="nav.members">Membres</a></li>
+    <li><a href="#galerie" data-i18n="nav.photos">Photos</a></li>
+    <li><a href="#musique" data-i18n="nav.music">Musique</a></li>
+    <li><a href="#billets" data-i18n="nav.tickets">Billets</a></li>
+    <li><a href="mailto:andre.arsenault@outlook.com" data-i18n="nav.contact">Contact</a></li>
   </ul>
-  <div class="nav-burger" id="burger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
+  <div class="nav-right">
+    <div class="lang-switch">
+      <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">FR</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+    <div class="nav-burger" id="burger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
   </div>
 </nav>
 
 <!-- Hero -->
 <section class="hero" id="home">
   <div class="stage-lights">
-    <!-- Rayons bleus/cyan — inspirés de la photo de François -->
     <div class="beam" style="--rot:-62deg; --w:90px;  --col:rgba(80,180,255,.18); --blur:4px; --dur:6s;  --delay:0s;   --max:.85;"></div>
     <div class="beam" style="--rot:-48deg; --w:110px; --col:rgba(60,200,255,.22); --blur:3px; --dur:5s;  --delay:.8s;  --max:1;"></div>
     <div class="beam" style="--rot:-35deg; --w:80px;  --col:rgba(120,210,255,.20); --blur:2px; --dur:7s;  --delay:.3s;  --max:.9;"></div>
@@ -409,29 +378,30 @@
     <div class="beam" style="--rot: 35deg; --w:80px;  --col:rgba(120,210,255,.20); --blur:2px; --dur:7s;  --delay:1s;   --max:.9;"></div>
     <div class="beam" style="--rot: 48deg; --w:110px; --col:rgba(60,200,255,.22); --blur:3px; --dur:5s;  --delay:.2s;  --max:1;"></div>
     <div class="beam" style="--rot: 62deg; --w:90px;  --col:rgba(80,180,255,.18); --blur:4px; --dur:6s;  --delay:.9s;  --max:.85;"></div>
-    <!-- Deux rayons violets pour la profondeur -->
     <div class="beam" style="--rot:-54deg; --w:60px;  --col:rgba(140,80,255,.12); --blur:5px; --dur:8s;  --delay:.4s;  --max:.7;"></div>
     <div class="beam" style="--rot: 54deg; --w:60px;  --col:rgba(140,80,255,.12); --blur:5px; --dur:8s;  --delay:1.3s; --max:.7;"></div>
   </div>
   <div class="hero-inner">
-    <img src="photos/LogoBluesBreakers.jpg" alt="Blues Breakers Band" style="height:300px;width:auto;margin:0 auto 1.5rem;mix-blend-mode:screen;filter:drop-shadow(0 0 32px rgba(245,158,11,.45)) drop-shadow(0 0 64px rgba(37,99,235,.3));">
-    <a href="#show" class="hero-tag" id="hero-tag">Spectacle bénéfice · 27 juin 2026</a>
-    <p class="hero-sub">Une soirée intense et rassembleuse — blues authentique avec l'énergie du rock</p>
+    <img src="photos/LogoBluesBreakers.jpg" alt="Blues Breakers Band"
+      style="height:300px;width:auto;margin:0 auto 1.5rem;mix-blend-mode:screen;
+      filter:drop-shadow(0 0 32px rgba(245,158,11,.45)) drop-shadow(0 0 64px rgba(37,99,235,.3));">
+    <a href="#show" class="hero-tag" id="hero-tag" data-i18n="hero.tag">Spectacle bénéfice · 27 juin 2026</a>
+    <p class="hero-sub" data-i18n="hero.sub">Une soirée intense et rassembleuse — blues authentique avec l'énergie du rock</p>
     <div class="hero-cta">
       <a href="https://lapetiteeglise.tuxedobillet.com/main/bluesbreakers" target="_blank" class="btn btn-primary">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
-        Réserver ma place — 25 $
+        <span data-i18n="hero.cta.tickets">Réserver ma place — 25 $</span>
       </a>
       <a href="#musique" class="btn btn-outline">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21 5,3"/></svg>
-        Écouter le groupe
+        <span data-i18n="hero.cta.listen">Écouter le groupe</span>
       </a>
     </div>
     <div class="countdown" id="countdown">
-      <div class="countdown-item"><span class="countdown-num" id="cd-j">--</span><div class="countdown-label">Jours</div></div>
-      <div class="countdown-item"><span class="countdown-num" id="cd-h">--</span><div class="countdown-label">Heures</div></div>
-      <div class="countdown-item"><span class="countdown-num" id="cd-m">--</span><div class="countdown-label">Minutes</div></div>
-      <div class="countdown-item"><span class="countdown-num" id="cd-s">--</span><div class="countdown-label">Secondes</div></div>
+      <div class="countdown-item"><span class="countdown-num" id="cd-j">--</span><div class="countdown-label" data-i18n="cd.days">Jours</div></div>
+      <div class="countdown-item"><span class="countdown-num" id="cd-h">--</span><div class="countdown-label" data-i18n="cd.hours">Heures</div></div>
+      <div class="countdown-item"><span class="countdown-num" id="cd-m">--</span><div class="countdown-label" data-i18n="cd.minutes">Minutes</div></div>
+      <div class="countdown-item"><span class="countdown-num" id="cd-s">--</span><div class="countdown-label" data-i18n="cd.seconds">Secondes</div></div>
     </div>
   </div>
 </section>
@@ -439,33 +409,33 @@
 <!-- Spectacle -->
 <section class="show-section" id="show">
   <div class="container">
-    <div class="section-label">Prochain événement</div>
-    <h2 class="section-title">Spectacle bénéfice<br>27 juin 2026</h2>
+    <div class="section-label" data-i18n="show.label">Prochain événement</div>
+    <h2 class="section-title" data-i18n="show.title">Spectacle bénéfice<br>27 juin 2026</h2>
     <div class="divider"></div>
     <div class="show-card">
       <div class="show-image"></div>
       <div class="show-info">
-        <div class="show-badge">⭐ Événement spécial</div>
-        <h3>Une soirée de blues-rock intense et rassembleuse</h3>
+        <div class="show-badge" data-i18n="show.badge">⭐ Événement spécial</div>
+        <h3 data-i18n="show.h3">Une soirée de blues-rock intense et rassembleuse</h3>
         <ul class="show-details">
           <li>
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            <div><strong>Samedi 27 juin 2026</strong> à 20h00</div>
+            <div data-i18n="show.date"><strong>Samedi 27 juin 2026</strong> à 20h00</div>
           </li>
           <li>
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <div><strong>La Petite Église</strong><br>271, rue Saint-Eustache, Saint-Eustache J7R 2L9</div>
+            <div data-i18n="show.venue"><strong>La Petite Église</strong><br>271, rue Saint-Eustache, Saint-Eustache J7R 2L9</div>
           </li>
           <li>
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-            <div><strong>25 $ — tarif régulier</strong></div>
+            <div data-i18n="show.price"><strong>25 $ — tarif régulier</strong></div>
           </li>
         </ul>
         <div class="show-causes">
-          <strong>💙 Spectacle bénéfice au profit de :</strong>
-          Fondation québécoise du cancer &amp; Société de la SLA du Québec
+          <strong data-i18n="show.causes.title">💙 Spectacle bénéfice au profit de :</strong>
+          <span data-i18n="show.causes.text">Fondation québécoise du cancer &amp; Société de la SLA du Québec</span>
         </div>
-        <a href="https://lapetiteeglise.tuxedobillet.com/main/bluesbreakers" target="_blank" class="btn btn-primary" style="font-size:.95rem;">
+        <a href="https://lapetiteeglise.tuxedobillet.com/main/bluesbreakers" target="_blank" class="btn btn-primary" style="font-size:.95rem;" data-i18n="show.btn">
           Acheter mes billets →
         </a>
       </div>
@@ -478,13 +448,13 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-text">
-        <div class="section-label">Le groupe</div>
-        <h2 class="section-title">Blues authentique,<br>énergie rock</h2>
+        <div class="section-label" data-i18n="about.label">Le groupe</div>
+        <h2 class="section-title" data-i18n="about.title">Blues authentique,<br>énergie rock</h2>
         <div class="divider"></div>
-        <p class="section-sub">
+        <p class="section-sub" data-i18n="about.p1">
           Les Blues Breakers sont un groupe de blues-rock de Laval qui puise ses racines dans la grande tradition du blues de Chicago, avec l'énergie brute du rock. Quatre musiciens passionnés qui créent une atmosphère intimiste où émotion et proximité avec le public se rencontrent à chaque note.
         </p>
-        <p class="section-sub" style="margin-top:1rem;">
+        <p class="section-sub" style="margin-top:1rem;" data-i18n="about.p2">
           Guitares expressives, rythmique groovante et une voix chargée d'âme — les Blues Breakers livrent des performances qui font bouger et qui restent gravées en mémoire.
         </p>
       </div>
@@ -498,51 +468,46 @@
 <!-- Membres -->
 <section class="members-section" id="membres">
   <div class="container">
-    <div class="section-label">Les musiciens</div>
-    <h2 class="section-title">Quatre passionnés,<br>un seul blues</h2>
+    <div class="section-label" data-i18n="members.label">Les musiciens</div>
+    <h2 class="section-title" data-i18n="members.title">Quatre passionnés,<br>un seul blues</h2>
     <div class="divider"></div>
     <div class="members-grid">
-
       <div class="member-card">
         <div class="member-photo">
           <img src="photos/andre-solo.jpg" alt="André Arsenault" style="object-position: center 20%;">
         </div>
         <div class="member-info">
           <div class="member-name">André Arsenault</div>
-          <div class="member-role">Guitare &amp; Voix</div>
+          <div class="member-role" data-i18n="member.andre.role">Guitare &amp; Voix</div>
         </div>
       </div>
-
       <div class="member-card">
         <div class="member-photo">
           <img src="photos/alain-seul.png" alt="Alain Poirier" style="object-position: center top;">
         </div>
         <div class="member-info">
           <div class="member-name">Alain Poirier</div>
-          <div class="member-role">Batterie</div>
+          <div class="member-role" data-i18n="member.alain.role">Batterie</div>
         </div>
       </div>
-
       <div class="member-card">
         <div class="member-photo">
           <img src="photos/francois.jpg" alt="François Constantin">
         </div>
         <div class="member-info">
           <div class="member-name">François Constantin</div>
-          <div class="member-role">Basse</div>
+          <div class="member-role" data-i18n="member.francois.role">Basse</div>
         </div>
       </div>
-
       <div class="member-card">
         <div class="member-photo">
           <img src="photos/Jean-Claude.png" alt="Jean-Claude Roy" style="object-position: 30% 15%;">
         </div>
         <div class="member-info">
           <div class="member-name">Jean-Claude Roy</div>
-          <div class="member-role">Guitare électrique</div>
+          <div class="member-role" data-i18n="member.jc.role">Guitare électrique</div>
         </div>
       </div>
-
     </div>
     <p style="color:rgba(255,255,255,.35); font-size:.82rem; margin-top:1.5rem; text-align:center;">
       Laval, Québec
@@ -553,8 +518,8 @@
 <!-- Galerie -->
 <section class="gallery-section" id="galerie">
   <div class="container">
-    <div class="section-label">En spectacle</div>
-    <h2 class="section-title">L'énergie sur scène</h2>
+    <div class="section-label" data-i18n="gallery.label">En spectacle</div>
+    <h2 class="section-title" data-i18n="gallery.title">L'énergie sur scène</h2>
     <div class="divider"></div>
     <div class="gallery-grid">
       <div class="gallery-item">
@@ -576,34 +541,32 @@
 <!-- Musique -->
 <section class="music-section" id="musique">
   <div class="container" style="text-align:center;">
-    <div class="section-label">Écoutez-nous</div>
-    <h2 class="section-title">Notre son en vidéo</h2>
+    <div class="section-label" data-i18n="music.label">Écoutez-nous</div>
+    <h2 class="section-title" data-i18n="music.title">Notre son en vidéo</h2>
     <div class="divider" style="margin-left:auto;margin-right:auto;"></div>
-    <p class="section-sub" style="margin:0 auto 0;">
+    <p class="section-sub" style="margin:0 auto 0;" data-i18n="music.sub">
       « Lie to Me » — cover de Jonny Lang. Laissez-vous emporter par l'intensité blues-rock des Blues Breakers.
     </p>
     <div class="videos-grid">
       <div class="video-item">
-        <p class="video-title">« Lie to Me » — cover de Jonny Lang</p>
+        <p class="video-title" data-i18n="music.video1">« Lie to Me » — cover de Jonny Lang</p>
         <div class="yt-frame">
           <iframe src="https://www.youtube-nocookie.com/embed/wzmB8KGCEJc"
             title="Blues Breakers — Lie to Me"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen loading="lazy">
-          </iframe>
+            allowfullscreen loading="lazy"></iframe>
         </div>
-        <a href="https://www.youtube.com/watch?v=wzmB8KGCEJc" target="_blank" class="yt-link">▶ Voir sur YouTube</a>
+        <a href="https://www.youtube.com/watch?v=wzmB8KGCEJc" target="_blank" class="yt-link" data-i18n="music.yt">▶ Voir sur YouTube</a>
       </div>
       <div class="video-item">
-        <p class="video-title">« Drive » — cover de Joe Bonamassa</p>
+        <p class="video-title" data-i18n="music.video2">« Drive » — cover de Joe Bonamassa</p>
         <div class="yt-frame">
           <iframe src="https://www.youtube-nocookie.com/embed/Fb_0mQEc68A"
             title="Blues Breakers — Drive"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen loading="lazy">
-          </iframe>
+            allowfullscreen loading="lazy"></iframe>
         </div>
-        <a href="https://www.youtube.com/watch?v=Fb_0mQEc68A" target="_blank" class="yt-link">▶ Voir sur YouTube</a>
+        <a href="https://www.youtube.com/watch?v=Fb_0mQEc68A" target="_blank" class="yt-link" data-i18n="music.yt">▶ Voir sur YouTube</a>
       </div>
     </div>
   </div>
@@ -612,54 +575,225 @@
 <!-- Billets -->
 <section class="tickets-section" id="billets">
   <div class="container">
-    <div class="section-label">Rejoignez-nous</div>
-    <h2 class="section-title">27 juin 2026 — La Petite Église</h2>
+    <div class="section-label" data-i18n="tickets.label">Rejoignez-nous</div>
+    <h2 class="section-title" data-i18n="tickets.title">27 juin 2026 — La Petite Église</h2>
     <div class="divider"></div>
-    <div class="tickets-price">25 $ <span>/ personne</span></div>
-    <p class="tickets-desc">
+    <div class="tickets-price">25 $ <span data-i18n="tickets.per">/ personne</span></div>
+    <p class="tickets-desc" data-i18n="tickets.desc">
       Billets disponibles en ligne ou au guichet.<br>
       Les profits sont entièrement versés à la Fondation québécoise du cancer et à la Société de la SLA du Québec.
     </p>
-    <a href="https://lapetiteeglise.tuxedobillet.com/main/bluesbreakers" target="_blank" class="btn btn-white" style="font-size:1.1rem; padding:1rem 2.5rem;">
+    <a href="https://lapetiteeglise.tuxedobillet.com/main/bluesbreakers" target="_blank" class="btn btn-white" style="font-size:1.1rem; padding:1rem 2.5rem;" data-i18n="tickets.btn">
       Acheter mes billets
     </a>
-    <p class="tickets-contact" style="margin-top:1.5rem; font-size:.9rem; color:rgba(255,255,255,.6);">
-      Billetterie : <a href="tel:4509742787" style="color:rgba(255,255,255,.85);text-decoration:underline;">450 974-2787</a> ·
-      <a href="mailto:billetterie@saint-eustache.ca" style="color:rgba(255,255,255,.85);text-decoration:underline;">billetterie@saint-eustache.ca</a>
+    <p class="tickets-contact" style="margin-top:1.5rem;">
+      <span data-i18n="tickets.box">Billetterie :</span>
+      <a href="tel:4509742787">450 974-2787</a> ·
+      <a href="mailto:billetterie@saint-eustache.ca">billetterie@saint-eustache.ca</a>
     </p>
   </div>
 </section>
 
 <!-- Footer -->
 <footer>
-  <div class="footer-logo"><img src="photos/LogoBluesBreakers.jpg" alt="Blues Breakers Band" style="height:56px;width:auto;margin:0 auto 0.5rem;mix-blend-mode:screen;"></div>
+  <div><img src="photos/LogoBluesBreakers.jpg" alt="Blues Breakers Band" style="height:56px;width:auto;margin:0 auto 0.5rem;mix-blend-mode:screen;"></div>
   <div class="footer-links">
     <a href="https://www.youtube.com/watch?v=wzmB8KGCEJc" target="_blank">YouTube</a>
     <a href="https://www.facebook.com/events/1577250010252428/" target="_blank">Facebook</a>
-    <a href="mailto:andre.arsenault@outlook.com">Contact</a>
+    <a href="mailto:andre.arsenault@outlook.com" data-i18n="nav.contact">Contact</a>
   </div>
-  <div class="footer-sub">© 2026 Blues Breakers · Blues-Rock de Laval, Québec</div>
+  <div class="footer-sub" data-i18n="footer.sub">© 2026 Blues Breakers · Blues-Rock de Laval, Québec</div>
 </footer>
 
 <script>
+  /* ── Traductions ── */
+  const translations = {
+    fr: {
+      'nav.show':    'Spectacle',
+      'nav.group':   'Le groupe',
+      'nav.members': 'Membres',
+      'nav.photos':  'Photos',
+      'nav.music':   'Musique',
+      'nav.tickets': 'Billets',
+      'nav.contact': 'Contact',
+
+      'hero.tag':         'Spectacle bénéfice · 27 juin 2026',
+      'hero.tag.postshow':'Blues authentique · Québec',
+      'hero.sub':         'Une soirée intense et rassembleuse — blues authentique avec l\'énergie du rock',
+      'hero.cta.tickets': 'Réserver ma place — 25 $',
+      'hero.cta.listen':  'Écouter le groupe',
+
+      'cd.days':    'Jours',
+      'cd.hours':   'Heures',
+      'cd.minutes': 'Minutes',
+      'cd.seconds': 'Secondes',
+      'cd.tonight': '🎸 Ce soir — Bonne soirée !',
+      'cd.thanks':  '✨ Merci à tous d\'être venus !<br><span style="font-size:.9rem;opacity:.7;font-weight:400;">Une soirée inoubliable au profit de causes qui nous tiennent à cœur.</span>',
+
+      'show.label':        'Prochain événement',
+      'show.title':        'Spectacle bénéfice<br>27 juin 2026',
+      'show.badge':        '⭐ Événement spécial',
+      'show.h3':           'Une soirée de blues-rock intense et rassembleuse',
+      'show.date':         '<strong>Samedi 27 juin 2026</strong> à 20h00',
+      'show.venue':        '<strong>La Petite Église</strong><br>271, rue Saint-Eustache, Saint-Eustache J7R 2L9',
+      'show.price':        '<strong>25 $ — tarif régulier</strong>',
+      'show.causes.title': '💙 Spectacle bénéfice au profit de :',
+      'show.causes.text':  'Fondation québécoise du cancer &amp; Société de la SLA du Québec',
+      'show.btn':          'Acheter mes billets →',
+
+      'about.label': 'Le groupe',
+      'about.title': 'Blues authentique,<br>énergie rock',
+      'about.p1':    'Les Blues Breakers sont un groupe de blues-rock de Laval qui puise ses racines dans la grande tradition du blues de Chicago, avec l\'énergie brute du rock. Quatre musiciens passionnés qui créent une atmosphère intimiste où émotion et proximité avec le public se rencontrent à chaque note.',
+      'about.p2':    'Guitares expressives, rythmique groovante et une voix chargée d\'âme — les Blues Breakers livrent des performances qui font bouger et qui restent gravées en mémoire.',
+
+      'members.label':       'Les musiciens',
+      'members.title':       'Quatre passionnés,<br>un seul blues',
+      'member.andre.role':   'Guitare &amp; Voix',
+      'member.alain.role':   'Batterie',
+      'member.francois.role':'Basse',
+      'member.jc.role':      'Guitare électrique',
+
+      'gallery.label': 'En spectacle',
+      'gallery.title': 'L\'énergie sur scène',
+
+      'music.label':  'Écoutez-nous',
+      'music.title':  'Notre son en vidéo',
+      'music.sub':    '« Lie to Me » — cover de Jonny Lang. Laissez-vous emporter par l\'intensité blues-rock des Blues Breakers.',
+      'music.video1': '« Lie to Me » — cover de Jonny Lang',
+      'music.video2': '« Drive » — cover de Joe Bonamassa',
+      'music.yt':     '▶ Voir sur YouTube',
+
+      'tickets.label': 'Rejoignez-nous',
+      'tickets.title': '27 juin 2026 — La Petite Église',
+      'tickets.per':   '/ personne',
+      'tickets.desc':  'Billets disponibles en ligne ou au guichet.<br>Les profits sont entièrement versés à la Fondation québécoise du cancer et à la Société de la SLA du Québec.',
+      'tickets.btn':   'Acheter mes billets',
+      'tickets.box':   'Billetterie :',
+
+      'footer.sub': '© 2026 Blues Breakers · Blues-Rock de Laval, Québec',
+    },
+    en: {
+      'nav.show':    'Show',
+      'nav.group':   'The Band',
+      'nav.members': 'Members',
+      'nav.photos':  'Photos',
+      'nav.music':   'Music',
+      'nav.tickets': 'Tickets',
+      'nav.contact': 'Contact',
+
+      'hero.tag':         'Benefit Concert · June 27, 2026',
+      'hero.tag.postshow':'Authentic Blues · Québec',
+      'hero.sub':         'An intense and unifying evening — authentic blues with the energy of rock',
+      'hero.cta.tickets': 'Reserve my seat — $25',
+      'hero.cta.listen':  'Listen to the band',
+
+      'cd.days':    'Days',
+      'cd.hours':   'Hours',
+      'cd.minutes': 'Minutes',
+      'cd.seconds': 'Seconds',
+      'cd.tonight': '🎸 Tonight — Enjoy the show!',
+      'cd.thanks':  '✨ Thank you all for coming!<br><span style="font-size:.9rem;opacity:.7;font-weight:400;">An unforgettable evening in support of causes close to our hearts.</span>',
+
+      'show.label':        'Next event',
+      'show.title':        'Benefit Concert<br>June 27, 2026',
+      'show.badge':        '⭐ Special Event',
+      'show.h3':           'An intense and unifying blues-rock evening',
+      'show.date':         '<strong>Saturday, June 27, 2026</strong> at 8:00 PM',
+      'show.venue':        '<strong>La Petite Église</strong><br>271 Saint-Eustache Street, Saint-Eustache J7R 2L9',
+      'show.price':        '<strong>$25 — regular admission</strong>',
+      'show.causes.title': '💙 Benefit concert in support of:',
+      'show.causes.text':  'Fondation québécoise du cancer &amp; Société de la SLA du Québec',
+      'show.btn':          'Buy tickets →',
+
+      'about.label': 'The Band',
+      'about.title': 'Authentic blues,<br>rock energy',
+      'about.p1':    'Blues Breakers are a blues-rock band from Laval whose roots draw from the great Chicago blues tradition, with the raw energy of rock. Four passionate musicians who create an intimate atmosphere where emotion and closeness with the audience meet at every note.',
+      'about.p2':    'Expressive guitars, a grooving rhythm section, and a soul-filled voice — Blues Breakers deliver performances that move you and stay with you long after the last note.',
+
+      'members.label':       'The musicians',
+      'members.title':       'Four passionate players,<br>one blues',
+      'member.andre.role':   'Guitar &amp; Vocals',
+      'member.alain.role':   'Drums',
+      'member.francois.role':'Bass',
+      'member.jc.role':      'Electric Guitar',
+
+      'gallery.label': 'On stage',
+      'gallery.title': 'Energy on stage',
+
+      'music.label':  'Listen to us',
+      'music.title':  'Our sound in video',
+      'music.sub':    '« Lie to Me » — Jonny Lang cover. Let yourself be carried away by the blues-rock intensity of Blues Breakers.',
+      'music.video1': '« Lie to Me » — Jonny Lang cover',
+      'music.video2': '« Drive » — Joe Bonamassa cover',
+      'music.yt':     '▶ Watch on YouTube',
+
+      'tickets.label': 'Join us',
+      'tickets.title': 'June 27, 2026 — La Petite Église',
+      'tickets.per':   '/ person',
+      'tickets.desc':  'Tickets available online or at the box office.<br>All profits go to the Fondation québécoise du cancer and the Société de la SLA du Québec.',
+      'tickets.btn':   'Buy tickets',
+      'tickets.box':   'Box office:',
+
+      'footer.sub': '© 2026 Blues Breakers · Blues-Rock from Laval, Québec',
+    }
+  };
+
+  /* ── Langue active ── */
+  let currentLang = 'fr';
+
+  function setLang(lang) {
+    currentLang = lang;
+    const t = translations[lang];
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+
+    document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.documentElement.lang = lang;
+    localStorage.setItem('bb-lang', lang);
+
+    // Si post-show : mettre à jour la banderole avec la bonne langue
+    const showDate = new Date('2026-06-27T20:00:00-04:00');
+    if (new Date() > showDate) {
+      const heroTag = document.getElementById('hero-tag');
+      if (heroTag) heroTag.innerHTML = t['hero.tag.postshow'];
+    }
+  }
+
+  /* ── Nav scroll ── */
   function toggleMenu() {
     document.getElementById('navLinks').classList.toggle('open');
   }
-
   window.addEventListener('scroll', () => {
     document.getElementById('navbar').style.background =
       window.scrollY > 40 ? 'rgba(26,26,46,0.98)' : 'rgba(26,26,46,0.92)';
   });
 
-  // Compte à rebours — 27 juillet 2026 20h00 heure de Montréal
+  /* ── Post-show & Countdown ── */
+  const showDate = new Date('2026-06-27T20:00:00-04:00');
+
+  const showSection  = document.getElementById('show');
+  const showNavLink  = document.querySelector('a[href="#show"]');
+  const heroTag      = document.getElementById('hero-tag');
+
+  if (new Date() > showDate) {
+    if (showSection)  showSection.style.display = 'none';
+    if (showNavLink)  showNavLink.parentElement.style.display = 'none';
+    if (heroTag)      heroTag.innerHTML = translations[currentLang]['hero.tag.postshow'];
+  }
+
   function updateCountdown() {
-    const show = new Date('2026-06-27T20:00:00-04:00');
-    const diff = show - new Date();
+    const diff = showDate - new Date();
+    const cdEl = document.getElementById('countdown');
+    if (!cdEl) return;
+
     if (diff <= 0) {
-      const isTonight = (showDate - now) > -86400000; // moins de 24h après
-      document.getElementById('countdown').innerHTML = isTonight
-        ? '<div style="color:rgba(255,255,255,.85);font-size:1.2rem;font-family:Raleway,sans-serif;font-weight:700;letter-spacing:.05em;">🎸 Ce soir — Bonne soirée !</div>'
-        : '<div style="color:rgba(255,255,255,.75);font-size:1.1rem;font-family:Raleway,sans-serif;font-weight:600;line-height:1.6;">✨ Merci à tous d\'être venus !<br><span style="font-size:.9rem;opacity:.7;font-weight:400;">Une soirée inoubliable au profit de causes qui nous tiennent à cœur.</span></div>';
+      const isTonight = (showDate - new Date()) > -86400000;
+      const key = isTonight ? 'cd.tonight' : 'cd.thanks';
+      cdEl.innerHTML = `<div style="color:rgba(255,255,255,.85);font-size:1.15rem;font-family:Raleway,sans-serif;font-weight:700;letter-spacing:.04em;line-height:1.6;">${translations[currentLang][key]}</div>`;
       return;
     }
     const j = Math.floor(diff / 86400000);
@@ -671,23 +805,13 @@
     document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
     document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
   }
-  // Masquer la section spectacle automatiquement après le show
-  const showDate = new Date('2026-06-27T20:00:00-04:00');
-  const now = new Date();
-  const showSection = document.getElementById('show');
-  const showNavLink = document.querySelector('a[href="#show"]');
-
-  const heroTag = document.getElementById('hero-tag');
-  if (now > showDate) {
-    // Après le show : cacher la section spectacle + son lien nav
-    if (showSection) showSection.style.display = 'none';
-    if (showNavLink) showNavLink.parentElement.style.display = 'none';
-    // Changer la banderole
-    if (heroTag) heroTag.textContent = 'Blues authentique · Québec';
-  }
 
   updateCountdown();
   setInterval(updateCountdown, 1000);
+
+  /* ── Init langue ── */
+  const savedLang = localStorage.getItem('bb-lang') || 'fr';
+  setLang(savedLang);
 </script>
 </body>
 </html>
