@@ -139,14 +139,58 @@
     /* ── Hero ── */
     .hero {
       min-height: 100vh;
-      background:
-        radial-gradient(ellipse 60% 50% at 20% 60%, rgba(37,99,235,.18) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 60% at 80% 40%, rgba(245,158,11,.10) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 40% at 50% 90%, rgba(37,99,235,.12) 0%, transparent 60%),
-        linear-gradient(160deg, #0a0a1a 0%, #1a1a2e 50%, #0d0d20 100%);
+      position: relative; overflow: hidden;
+      background: linear-gradient(180deg, #06060f 0%, #0d0d1e 60%, #100818 100%);
       display: flex; align-items: center; justify-content: center;
       text-align: center; padding: 6rem 1.5rem 3rem;
     }
+
+    /* ── Lumières de scène ── */
+    .stage-lights {
+      position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0;
+    }
+    /* Source lumineuse en haut au centre */
+    .stage-lights::before {
+      content: '';
+      position: absolute; top: -60px; left: 50%; transform: translateX(-50%);
+      width: 180px; height: 180px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(180,230,255,.55) 0%, rgba(100,180,255,.2) 40%, transparent 70%);
+      filter: blur(12px);
+    }
+    /* Lueur orangée au sol */
+    .stage-lights::after {
+      content: '';
+      position: absolute; bottom: -20px; left: 0; right: 0; height: 220px;
+      background:
+        radial-gradient(ellipse 35% 60% at 8% 100%,  rgba(220,80,20,.35) 0%, transparent 70%),
+        radial-gradient(ellipse 30% 50% at 92% 100%, rgba(180,40,10,.28) 0%, transparent 70%),
+        radial-gradient(ellipse 20% 30% at 50% 100%, rgba(245,140,30,.12) 0%, transparent 70%);
+    }
+    .beam {
+      position: absolute;
+      top: 0; left: 50%;
+      width: var(--w, 120px);
+      height: 110vh;
+      transform-origin: top center;
+      transform: translateX(-50%) rotate(var(--rot));
+      background: linear-gradient(
+        to bottom,
+        var(--col, rgba(100,200,255,.22)) 0%,
+        var(--col, rgba(100,200,255,.10)) 25%,
+        transparent 72%
+      );
+      filter: blur(var(--blur, 3px));
+      animation: beam-pulse var(--dur, 5s) ease-in-out infinite var(--delay, 0s);
+      opacity: 0;
+    }
+    @keyframes beam-pulse {
+      0%   { opacity: 0; }
+      20%  { opacity: var(--max, .9); }
+      60%  { opacity: calc(var(--max, .9) * .7); }
+      80%  { opacity: var(--max, .9); }
+      100% { opacity: 0; }
+    }
+    .hero-inner { position: relative; z-index: 1; max-width: 740px; width: 100%; }
     .hero-inner { max-width: 740px; }
     .hero-tag {
       display: inline-block;
@@ -357,6 +401,23 @@
 
 <!-- Hero -->
 <section class="hero" id="home">
+  <div class="stage-lights">
+    <!-- Rayons bleus/cyan — inspirés de la photo de François -->
+    <div class="beam" style="--rot:-62deg; --w:90px;  --col:rgba(80,180,255,.18); --blur:4px; --dur:6s;  --delay:0s;   --max:.85;"></div>
+    <div class="beam" style="--rot:-48deg; --w:110px; --col:rgba(60,200,255,.22); --blur:3px; --dur:5s;  --delay:.8s;  --max:1;"></div>
+    <div class="beam" style="--rot:-35deg; --w:80px;  --col:rgba(120,210,255,.20); --blur:2px; --dur:7s;  --delay:.3s;  --max:.9;"></div>
+    <div class="beam" style="--rot:-22deg; --w:130px; --col:rgba(40,190,255,.25); --blur:3px; --dur:4.5s;--delay:1.2s; --max:1;"></div>
+    <div class="beam" style="--rot:-10deg; --w:95px;  --col:rgba(160,220,255,.18); --blur:2px; --dur:6.5s;--delay:.5s;  --max:.8;"></div>
+    <div class="beam" style="--rot:  0deg; --w:140px; --col:rgba(200,235,255,.20); --blur:4px; --dur:5.5s;--delay:0s;   --max:.95;"></div>
+    <div class="beam" style="--rot: 10deg; --w:95px;  --col:rgba(160,220,255,.18); --blur:2px; --dur:6.5s;--delay:1.5s; --max:.8;"></div>
+    <div class="beam" style="--rot: 22deg; --w:130px; --col:rgba(40,190,255,.25); --blur:3px; --dur:4.5s;--delay:.7s;  --max:1;"></div>
+    <div class="beam" style="--rot: 35deg; --w:80px;  --col:rgba(120,210,255,.20); --blur:2px; --dur:7s;  --delay:1s;   --max:.9;"></div>
+    <div class="beam" style="--rot: 48deg; --w:110px; --col:rgba(60,200,255,.22); --blur:3px; --dur:5s;  --delay:.2s;  --max:1;"></div>
+    <div class="beam" style="--rot: 62deg; --w:90px;  --col:rgba(80,180,255,.18); --blur:4px; --dur:6s;  --delay:.9s;  --max:.85;"></div>
+    <!-- Deux rayons violets pour la profondeur -->
+    <div class="beam" style="--rot:-54deg; --w:60px;  --col:rgba(140,80,255,.12); --blur:5px; --dur:8s;  --delay:.4s;  --max:.7;"></div>
+    <div class="beam" style="--rot: 54deg; --w:60px;  --col:rgba(140,80,255,.12); --blur:5px; --dur:8s;  --delay:1.3s; --max:.7;"></div>
+  </div>
   <div class="hero-inner">
     <img src="photos/LogoBluesBreakers.jpg" alt="Blues Breakers Band" style="height:300px;width:auto;margin:0 auto 1.5rem;mix-blend-mode:screen;filter:drop-shadow(0 0 32px rgba(245,158,11,.45)) drop-shadow(0 0 64px rgba(37,99,235,.3));">
     <div class="hero-tag">Blues-Rock · Laval, Québec</div>
