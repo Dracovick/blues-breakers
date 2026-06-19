@@ -420,7 +420,7 @@
   </div>
   <div class="hero-inner">
     <img src="photos/LogoBluesBreakers.jpg" alt="Blues Breakers Band" style="height:300px;width:auto;margin:0 auto 1.5rem;mix-blend-mode:screen;filter:drop-shadow(0 0 32px rgba(245,158,11,.45)) drop-shadow(0 0 64px rgba(37,99,235,.3));">
-    <div class="hero-tag">Blues-Rock · Laval, Québec</div>
+    <div class="hero-tag" id="hero-tag">Spectacle bénéfice · 27 juin 2026</div>
     <p class="hero-sub">Une soirée intense et rassembleuse — blues authentique avec l'énergie du rock</p>
     <div class="hero-cta">
       <a href="https://lapetiteeglise.tuxedobillet.com/main/bluesbreakers" target="_blank" class="btn btn-primary">
@@ -683,10 +683,13 @@
   const showSection = document.getElementById('show');
   const showNavLink = document.querySelector('a[href="#show"]');
 
+  const heroTag = document.getElementById('hero-tag');
   if (now > showDate) {
     // Après le show : cacher la section spectacle + son lien nav
     if (showSection) showSection.style.display = 'none';
     if (showNavLink) showNavLink.parentElement.style.display = 'none';
+    // Changer la banderole
+    if (heroTag) heroTag.textContent = 'Blues authentique · Québec';
   }
 
   updateCountdown();
