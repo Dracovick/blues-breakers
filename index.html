@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blues Breakers — Blues-Rock de Laval</title>
-  <meta name="description" content="Blues Breakers, groupe de blues-rock de Laval. Spectacle bénéfice le 27 juillet 2026 à La Petite Église de Saint-Eustache.">
+  <meta name="description" content="Blues Breakers, groupe de blues-rock de Laval. Spectacle bénéfice le 27 juin 2026 à La Petite Église de Saint-Eustache.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,8 +44,11 @@
     /* ── Hero ── */
     .hero {
       min-height: 100vh;
-      background: linear-gradient(to bottom, rgba(26,26,46,.65) 0%, rgba(26,26,46,.45) 50%, rgba(26,26,46,.88) 100%),
-                  url('photos/scene1.jpg') center/cover no-repeat;
+      background:
+        radial-gradient(ellipse 60% 50% at 20% 60%, rgba(37,99,235,.18) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 80% 40%, rgba(245,158,11,.10) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 50% 90%, rgba(37,99,235,.12) 0%, transparent 60%),
+        linear-gradient(160deg, #0a0a1a 0%, #1a1a2e 50%, #0d0d20 100%);
       display: flex; align-items: center; justify-content: center;
       text-align: center; padding: 6rem 1.5rem 3rem;
     }
@@ -170,13 +173,28 @@
 
     /* ── Musique ── */
     .music-section { background: var(--light); }
-    .video-wrap {
+    .yt-thumb {
+      display: block; position: relative;
+      max-width: 820px; margin: 2rem auto 0;
       border-radius: 1rem; overflow: hidden;
-      box-shadow: 0 8px 48px rgba(37,99,235,.12);
-      aspect-ratio: 16/9; margin-top: 2rem;
-      max-width: 820px; margin-left: auto; margin-right: auto;
+      box-shadow: 0 8px 48px rgba(37,99,235,.15);
+      aspect-ratio: 16/9;
+      background: #000;
     }
-    .video-wrap iframe { width: 100%; height: 100%; border: none; }
+    .yt-thumb img { width: 100%; height: 100%; object-fit: cover; transition: opacity .3s; }
+    .yt-thumb:hover img { opacity: .75; }
+    .yt-play {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .2s;
+    }
+    .yt-thumb:hover .yt-play { transform: scale(1.12); }
+    .yt-label {
+      position: absolute; bottom: 1rem; right: 1rem;
+      background: rgba(0,0,0,.65); color: #fff;
+      font-size: .8rem; padding: .35rem .75rem; border-radius: .4rem;
+      letter-spacing: .04em;
+    }
 
     /* ── Billets ── */
     .tickets-section {
@@ -240,8 +258,8 @@
 <!-- Hero -->
 <section class="hero" id="home">
   <div class="hero-inner">
+    <img src="photos/LogoBluesBreakers.jpg" alt="Blues Breakers Band" style="height:300px;width:auto;margin:0 auto 1.5rem;mix-blend-mode:screen;filter:drop-shadow(0 0 32px rgba(245,158,11,.45)) drop-shadow(0 0 64px rgba(37,99,235,.3));">
     <div class="hero-tag">Blues-Rock · Laval, Québec</div>
-    <h1>Blues<em>Breakers</em></h1>
     <p class="hero-sub">Une soirée intense et rassembleuse — blues authentique avec l'énergie du rock</p>
     <div class="hero-cta">
       <a href="https://lapetiteeglise.tuxedobillet.com/main/bluesbreakers" target="_blank" class="btn btn-primary">
@@ -266,7 +284,7 @@
 <section class="show-section" id="show">
   <div class="container">
     <div class="section-label">Prochain événement</div>
-    <h2 class="section-title">Spectacle bénéfice<br>27 juillet 2026</h2>
+    <h2 class="section-title">Spectacle bénéfice<br>27 juin 2026</h2>
     <div class="divider"></div>
     <div class="show-card">
       <div class="show-image"></div>
@@ -276,7 +294,7 @@
         <ul class="show-details">
           <li>
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            <div><strong>Lundi 27 juillet 2026</strong> à 20h00</div>
+            <div><strong>Samedi 27 juin 2026</strong> à 20h00</div>
           </li>
           <li>
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -361,7 +379,7 @@
 
       <div class="member-card">
         <div class="member-photo">
-          <img src="photos/jc-andre.jpg" alt="Jean-Claude Roy" style="object-position: left center;">
+          <img src="photos/Jean-Claude.png" alt="Jean-Claude Roy" style="object-position: 30% 15%;">
         </div>
         <div class="member-info">
           <div class="member-name">Jean-Claude Roy</div>
@@ -405,14 +423,16 @@
     <p class="section-sub" style="margin:0 auto 0;">
       « Lie to Me » — cover de Jonny Lang. Laissez-vous emporter par l'intensité blues-rock des Blues Breakers.
     </p>
-    <div class="video-wrap">
-      <iframe
-        src="https://www.youtube.com/embed/wzmB8KGCEJc"
-        title="Blues Breakers — Lie to Me (Jonny Lang cover)"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-    </div>
+    <a href="https://www.youtube.com/watch?v=wzmB8KGCEJc" target="_blank" class="yt-thumb" aria-label="Voir la vidéo sur YouTube">
+      <img src="https://img.youtube.com/vi/wzmB8KGCEJc/maxresdefault.jpg" alt="Blues Breakers — Lie to Me (Jonny Lang cover)">
+      <div class="yt-play">
+        <svg viewBox="0 0 68 48" width="68" height="48">
+          <path d="M66.5 7.7a8.5 8.5 0 00-6-6C56 0 34 0 34 0S12 0 7.5 1.7a8.5 8.5 0 00-6 6C0 12.1 0 24 0 24s0 11.9 1.5 16.3a8.5 8.5 0 006 6C12 48 34 48 34 48s22 0 26.5-1.7a8.5 8.5 0 006-6C68 35.9 68 24 68 24s0-11.9-1.5-16.3z" fill="#ff0000"/>
+          <path d="M27 34l18-10-18-10v20z" fill="#fff"/>
+        </svg>
+      </div>
+      <div class="yt-label">Voir sur YouTube</div>
+    </a>
   </div>
 </section>
 
@@ -420,7 +440,7 @@
 <section class="tickets-section" id="billets">
   <div class="container">
     <div class="section-label">Rejoignez-nous</div>
-    <h2 class="section-title">27 juillet 2026 — La Petite Église</h2>
+    <h2 class="section-title">27 juin 2026 — La Petite Église</h2>
     <div class="divider"></div>
     <div class="tickets-price">25 $ <span>/ personne</span></div>
     <p class="tickets-desc">
@@ -460,7 +480,7 @@
 
   // Compte à rebours — 27 juillet 2026 20h00 heure de Montréal
   function updateCountdown() {
-    const show = new Date('2026-07-27T20:00:00-04:00');
+    const show = new Date('2026-06-27T20:00:00-04:00');
     const diff = show - new Date();
     if (diff <= 0) {
       document.getElementById('countdown').innerHTML =
