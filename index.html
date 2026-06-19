@@ -320,28 +320,18 @@
     .video-title { font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 1rem; color: var(--navy); text-align: center; }
     @media (max-width: 640px) { .videos-grid { grid-template-columns: 1fr; } }
 
-    .yt-thumb {
-      display: block; position: relative;
-      max-width: 100%; margin: 0;
-      border-radius: 1rem; overflow: hidden;
-      box-shadow: 0 8px 48px rgba(37,99,235,.15);
-      aspect-ratio: 16/9;
-      background: #000;
+    .yt-frame {
+      border-radius: .75rem; overflow: hidden;
+      box-shadow: 0 8px 32px rgba(37,99,235,.15);
+      aspect-ratio: 16/9; background: #000;
     }
-    .yt-thumb img { width: 100%; height: 100%; object-fit: cover; transition: opacity .3s; }
-    .yt-thumb:hover img { opacity: .75; }
-    .yt-play {
-      position: absolute; inset: 0;
-      display: flex; align-items: center; justify-content: center;
-      transition: transform .2s;
+    .yt-frame iframe { width: 100%; height: 100%; border: none; display: block; }
+    .yt-link {
+      display: inline-block; margin-top: .6rem;
+      font-size: .82rem; color: var(--gray);
+      transition: color .2s;
     }
-    .yt-thumb:hover .yt-play { transform: scale(1.12); }
-    .yt-label {
-      position: absolute; bottom: 1rem; right: 1rem;
-      background: rgba(0,0,0,.65); color: #fff;
-      font-size: .8rem; padding: .35rem .75rem; border-radius: .4rem;
-      letter-spacing: .04em;
-    }
+    .yt-link:hover { color: var(--blue); }
 
     /* ── Billets ── */
     .tickets-section {
@@ -590,29 +580,25 @@
     <div class="videos-grid">
       <div class="video-item">
         <p class="video-title">« Lie to Me » — cover de Jonny Lang</p>
-        <a href="https://www.youtube.com/watch?v=wzmB8KGCEJc" target="_blank" class="yt-thumb" aria-label="Voir Lie to Me sur YouTube">
-          <img src="https://img.youtube.com/vi/wzmB8KGCEJc/maxresdefault.jpg" alt="Blues Breakers — Lie to Me (Jonny Lang cover)">
-          <div class="yt-play">
-            <svg viewBox="0 0 68 48" width="68" height="48">
-              <path d="M66.5 7.7a8.5 8.5 0 00-6-6C56 0 34 0 34 0S12 0 7.5 1.7a8.5 8.5 0 00-6 6C0 12.1 0 24 0 24s0 11.9 1.5 16.3a8.5 8.5 0 006 6C12 48 34 48 34 48s22 0 26.5-1.7a8.5 8.5 0 006-6C68 35.9 68 24 68 24s0-11.9-1.5-16.3z" fill="#ff0000"/>
-              <path d="M27 34l18-10-18-10v20z" fill="#fff"/>
-            </svg>
-          </div>
-          <div class="yt-label">Voir sur YouTube</div>
-        </a>
+        <div class="yt-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/wzmB8KGCEJc"
+            title="Blues Breakers — Lie to Me"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy">
+          </iframe>
+        </div>
+        <a href="https://www.youtube.com/watch?v=wzmB8KGCEJc" target="_blank" class="yt-link">▶ Voir sur YouTube</a>
       </div>
       <div class="video-item">
         <p class="video-title">« Drive » — cover de Joe Bonamassa</p>
-        <a href="https://www.youtube.com/watch?v=Fb_0mQEc68A" target="_blank" class="yt-thumb" aria-label="Voir Drive sur YouTube">
-          <img src="https://img.youtube.com/vi/Fb_0mQEc68A/maxresdefault.jpg" alt="Blues Breakers — Drive (Joe Bonamassa cover)">
-          <div class="yt-play">
-            <svg viewBox="0 0 68 48" width="68" height="48">
-              <path d="M66.5 7.7a8.5 8.5 0 00-6-6C56 0 34 0 34 0S12 0 7.5 1.7a8.5 8.5 0 00-6 6C0 12.1 0 24 0 24s0 11.9 1.5 16.3a8.5 8.5 0 006 6C12 48 34 48 34 48s22 0 26.5-1.7a8.5 8.5 0 006-6C68 35.9 68 24 68 24s0-11.9-1.5-16.3z" fill="#ff0000"/>
-              <path d="M27 34l18-10-18-10v20z" fill="#fff"/>
-            </svg>
-          </div>
-          <div class="yt-label">Voir sur YouTube</div>
-        </a>
+        <div class="yt-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/Fb_0mQEc68A"
+            title="Blues Breakers — Drive"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy">
+          </iframe>
+        </div>
+        <a href="https://www.youtube.com/watch?v=Fb_0mQEc68A" target="_blank" class="yt-link">▶ Voir sur YouTube</a>
       </div>
     </div>
   </div>
