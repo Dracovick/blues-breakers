@@ -662,8 +662,10 @@
     const show = new Date('2026-06-27T20:00:00-04:00');
     const diff = show - new Date();
     if (diff <= 0) {
-      document.getElementById('countdown').innerHTML =
-        '<div style="color:rgba(255,255,255,.8);font-size:1.1rem;letter-spacing:.05em;">Ce soir — Bonne soirée ! 🎸</div>';
+      const isTonight = (showDate - now) > -86400000; // moins de 24h après
+      document.getElementById('countdown').innerHTML = isTonight
+        ? '<div style="color:rgba(255,255,255,.85);font-size:1.2rem;font-family:Raleway,sans-serif;font-weight:700;letter-spacing:.05em;">🎸 Ce soir — Bonne soirée !</div>'
+        : '<div style="color:rgba(255,255,255,.75);font-size:1.1rem;font-family:Raleway,sans-serif;font-weight:600;line-height:1.6;">✨ Merci à tous d\'être venus !<br><span style="font-size:.9rem;opacity:.7;font-weight:400;">Une soirée inoubliable au profit de causes qui nous tiennent à cœur.</span></div>';
       return;
     }
     const j = Math.floor(diff / 86400000);
@@ -675,6 +677,18 @@
     document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
     document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
   }
+  // Masquer la section spectacle automatiquement après le show
+  const showDate = new Date('2026-06-27T20:00:00-04:00');
+  const now = new Date();
+  const showSection = document.getElementById('show');
+  const showNavLink = document.querySelector('a[href="#show"]');
+
+  if (now > showDate) {
+    // Après le show : cacher la section spectacle + son lien nav
+    if (showSection) showSection.style.display = 'none';
+    if (showNavLink) showNavLink.parentElement.style.display = 'none';
+  }
+
   updateCountdown();
   setInterval(updateCountdown, 1000);
 </script>
