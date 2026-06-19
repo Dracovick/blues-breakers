@@ -365,7 +365,8 @@
       .show-image { min-height: 240px; }
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
       .about-image { order: -1; }
-      .gallery-item:first-child { grid-column: span 1; aspect-ratio: 4/3; }
+      .gallery-item:first-child,
+      .gallery-item:last-child { grid-column: span 1 !important; aspect-ratio: 4/3; }
       .gallery-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 480px) {
@@ -504,7 +505,7 @@
 
       <div class="member-card">
         <div class="member-photo">
-          <img src="photos/scene1.jpg" alt="André Arsenault" style="object-position: center 20%;">
+          <img src="photos/andre-solo.jpg" alt="André Arsenault" style="object-position: center 20%;">
         </div>
         <div class="member-info">
           <div class="member-name">André Arsenault</div>
@@ -557,13 +558,16 @@
     <div class="divider"></div>
     <div class="gallery-grid">
       <div class="gallery-item">
-        <img src="photos/scene2.jpg" alt="Blues Breakers en concert">
+        <img src="photos/groupe-scene.jpg" alt="Blues Breakers en concert">
       </div>
       <div class="gallery-item">
-        <img src="photos/francois.jpg" alt="François Constantin à la basse">
+        <img src="photos/jc-francois.png" alt="Jean-Claude Roy et François Constantin">
       </div>
       <div class="gallery-item">
-        <img src="photos/jc-andre.jpg" alt="Jean-Claude Roy et André Arsenault">
+        <img src="photos/concert-public.png" alt="Blues Breakers — ambiance de spectacle">
+      </div>
+      <div class="gallery-item" style="grid-column: span 2; aspect-ratio: 16/7;">
+        <img src="photos/alain-batterie.png" alt="Alain Poirier à la batterie">
       </div>
     </div>
   </div>
