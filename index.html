@@ -291,7 +291,8 @@
     .videos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; max-width: 1060px; margin-left: auto; margin-right: auto; }
     .video-item { display: flex; flex-direction: column; gap: .75rem; }
     .video-title { font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 1rem; color: var(--navy); text-align: center; }
-    .video-guest { font-size: .85rem; color: var(--gray); text-align: center; font-style: italic; margin-top: -.25rem; }
+    .video-header { min-height: 3.2rem; display: flex; flex-direction: column; justify-content: center; gap: .2rem; }
+    .video-guest { font-size: .85rem; color: var(--gray); text-align: center; font-style: italic; }
     .yt-frame { border-radius: .75rem; overflow: hidden; box-shadow: 0 8px 32px rgba(37,99,235,.15); aspect-ratio: 16/9; background: #000; }
     .yt-frame iframe { width: 100%; height: 100%; border: none; display: block; }
     .yt-link { display: inline-block; margin-top: .6rem; font-size: .82rem; color: var(--gray); transition: color .2s; }
@@ -550,7 +551,9 @@
     </p>
     <div class="videos-grid">
       <div class="video-item">
-        <p class="video-title" data-i18n="music.video1">« Lie to Me » — cover de Jonny Lang</p>
+        <div class="video-header">
+          <p class="video-title" data-i18n="music.video1">« Lie to Me » — cover de Jonny Lang</p>
+        </div>
         <div class="yt-frame">
           <iframe src="https://www.youtube-nocookie.com/embed/wzmB8KGCEJc"
             title="Blues Breakers — Lie to Me"
@@ -560,8 +563,10 @@
         <a href="https://www.youtube.com/watch?v=wzmB8KGCEJc" target="_blank" class="yt-link" data-i18n="music.yt">▶ Voir sur YouTube</a>
       </div>
       <div class="video-item">
-        <p class="video-title" data-i18n="music.video2">« Drive » — cover de Joe Bonamassa</p>
-        <p class="video-guest" data-i18n="music.video2guest">Invitée spéciale : Émilie Durocher De Grandpré au violon</p>
+        <div class="video-header">
+          <p class="video-title" data-i18n="music.video2">« Drive » — cover de Joe Bonamassa</p>
+          <p class="video-guest" data-i18n="music.video2guest">Invitée spéciale : Émilie Durocher De Grandpré au violon</p>
+        </div>
         <div class="yt-frame">
           <iframe src="https://www.youtube-nocookie.com/embed/Fb_0mQEc68A"
             title="Blues Breakers — Drive"
